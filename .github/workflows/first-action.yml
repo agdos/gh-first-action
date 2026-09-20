@@ -8,13 +8,13 @@ jobs:
         run: | 
                echo "Hello World!"
                echo "Agora é a segunda linha"
-               ls -l
-               var='teste'
+               ls -l arquivo123
+               export var='teste'
                echo "var: $var"
-               touch arquivo123
       - name: Print goodbye
         run: | 
                echo "Done - bye!"
                echo "var: $var"
                echo "Será que deu certo? rs"
-               ls -l arquivo123
+               [ -f 'arquivo123' ] && { echo "Deu true" ; ls -l arquivo123 ; }
+               bash --version
