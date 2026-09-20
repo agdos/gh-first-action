@@ -21,6 +21,13 @@ jobs:
                echo "Done - bye!"
                echo "Como variaveis não navegam entre os runs de um mesmo step de job, vou fazer de outro jeito rs"
                echo "var: ${var}"
+               if [[ -z "${var}" ]]; then
+                 echo "Variavel var está vazia. Ajustando..."
+                 sleep 3
+                 var='Arquivo123'
+                 echo "Resolvido."
+                 echo '-------'
+               fi
                echo "Será que deu certo? rs"
-               [ -f "${var:-'Arquivo123'}" ] && { echo "Deu true" ; ls -l "${var:-'Arquivo123'}" ; exit 0 ; }
+               [[ -f "${var}" ]] && { echo "Deu true" ; ls -l "${var}" ; exit 0 ; }
                bash --version
