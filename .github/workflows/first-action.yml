@@ -19,8 +19,8 @@ jobs:
       - name: Print goodbye
         run: | 
                echo "Done - bye!"
-               echo "var: $var"
+               echo "Como variaveis não navegam entre os runs de um mesmo step de job, vou fazer de outro jeito rs"
+               echo "var: ${var}"
                echo "Será que deu certo? rs"
-               [ -f "${var}" ] && { echo "Deu true" ; ls -l "${var}" ; exit 0 ; }
+               [ -f "${var='Arquivo123'}" ] && { echo "Deu true" ; ls -l "${var='Arquivo123'}" ; exit 0 ; }
                bash --version
-               
