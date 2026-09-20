@@ -5,6 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print greeting
-        run: echo "Hello World!"
+        run: | 
+               echo "Hello World!"
+               echo "Agora é a segunda linha"
+               ls -l
+               var='teste'
+               echo "var: $var"
+               touch arquivo123
       - name: Print goodbye
-        run: echo "Done - bye!"
+        run: | 
+               echo "Done - bye!"
+               echo "var: $var"
+               echo "Será que deu certo? rs"
+               ls -l arquivo123
