@@ -14,13 +14,13 @@ jobs:
                  echo "Arquivo123 não existe."
                  touch Arquivo123 && { echo "Arquivo criado com sucesso." ; }
                fi
-               export var='Arquivo123'
+               var='Arquivo123'
                echo "var: $var"
       - name: Print goodbye
         run: | 
                echo "Done - bye!"
                echo "var: $var"
                echo "Será que deu certo? rs"
-               [ -f "${var}" ] && { echo "Deu true" ; ls -l "${var}" ; }
+               [ -f "${var}" ] && { echo "Deu true" ; ls -l "${var}" ; exit 0 ; }
                bash --version
                
