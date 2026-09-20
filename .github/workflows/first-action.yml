@@ -8,13 +8,19 @@ jobs:
         run: | 
                echo "Hello World!"
                echo "Agora é a segunda linha"
-               ls -l arquivo123
-               export var='teste'
+               if [[ -f 'arquivo123' ]]; then
+                 echo "Arquivo123 existe."
+               else
+                 echo "Arquivo123 não existe."
+                 touch Arquivo123 && { echo "Arquivo criado com sucesso." ; }
+               fi
+               export var='Arquivo123'
                echo "var: $var"
       - name: Print goodbye
         run: | 
                echo "Done - bye!"
                echo "var: $var"
                echo "Será que deu certo? rs"
-               [ -f 'arquivo123' ] && { echo "Deu true" ; ls -l arquivo123 ; }
+               [ -f "${var}" ] && { echo "Deu true" ; ls -l "${var}" ; }
                bash --version
+               
